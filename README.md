@@ -1,4 +1,4 @@
-This repository showcases a Webpack issue along with incorrect handling by `css-loader` and `extract-text-plugin`.
+This repository showcases a Webpack issue along with incorrect handling by `css-loader` and `extract-text-webpack-plugin`.
 
 `index.js` imports `main.css` that has a `url('')` rule. `css-loader` treats this as a module import. Webpack tries to import the module defined by `''` that is incorrectly treated as `'./'`. Since there is an `index.js` in the directory where `main.css`, Webpack resolves the `url('')` to `index.js` and substitutes `''` to `index.js`.
 
@@ -27,9 +27,9 @@ Although this might be intended, it might not be correct to require certain file
 3. Open `index.html` in your browser
 4. An error is thrown from `index.js` since it's required from `main.css`
 
-### `extract-text-plugin` issue
+### `extract-text-webpack-plugin` issue
 
-`extract-text-plugin` executes imported files during build. The contents of `index.js` are executed during build time and since an error is thrown from `index.js`, the build fails.
+`extract-text-webpack-plugin` executes imported files during build. The contents of `index.js` are executed during build time and since an error is thrown from `index.js`, the build fails.
 
 #### Steps to reproduce
 
