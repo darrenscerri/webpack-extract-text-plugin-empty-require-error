@@ -1,0 +1,17 @@
+{
+  "name": "webpack-extract-text-plugin-empty-require-error",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "build:extract": "webpack --config webpack.config.extract.js"
+  },
+  "devDependencies": {
+    "css-loader": "^0.27.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "style-loader": "^0.15.0",
+    "webpack": "^2.3.0"
+  }
+}
