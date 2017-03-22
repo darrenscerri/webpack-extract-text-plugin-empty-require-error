@@ -8,13 +8,13 @@ This repository showcases a Webpack issue along with incorrect handling by `css-
 
 ### Webpack `require('')` issue
 
-`require('')` should be a noop and not treated as `require('./')`. Although this was supposed to be fixed by https://github.com/webpack/webpack/issues/2006, this issue still persists with Webpack v2.3.0.
+`require('')` should be a noop and not treated as `require('./')`. Although this is fixed by https://github.com/webpack/webpack/issues/2006, this issue still persists internally through loaders with Webpack v2.3.1. (See `css-loader` issue)
 
 #### Steps to reproduce
 
 1. `yarn`
 2. `yarn build`
-3. Webpack should issue a warning for using `require('')`
+3. Webpack should issue a warning for trying to import `''`, in the same way it warns for an actual `require('')`
 
 ### `css-loader` issue
 
