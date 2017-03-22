@@ -2,8 +2,6 @@ This repository showcases a Webpack issue along with incorrect handling by `css-
 
 `index.js` imports `main.css` that has a `url('')` rule. `css-loader` treats this as a module import. Webpack tries to import the module defined by `''` that is incorrectly treated as `'./'`. Since there is an `index.js` in the directory where `main.css`, Webpack resolves the `url('')` to `index.js` and substitutes `''` to `index.js`.
 
-![Webpack console output](https://cloud.githubusercontent.com/assets/729230/24204564/2aa6353e-0f19-11e7-9046-7481a1419b0b.png)
-
 ```js
 "url(" + __webpack_require__(0) + ")"
 ```
@@ -17,6 +15,8 @@ This repository showcases a Webpack issue along with incorrect handling by `css-
 1. `yarn`
 2. `yarn build`
 3. Webpack should issue a warning for using `require('')`
+
+![Webpack console output](https://cloud.githubusercontent.com/assets/729230/24204564/2aa6353e-0f19-11e7-9046-7481a1419b0b.png)
 
 ### `css-loader` issue
 
