@@ -1,20 +1,10 @@
 This repository showcases a Webpack issue along with incorrect handling by `css-loader` and `extract-text-webpack-plugin`.
 
-`index.js` imports `main.css` that has a `url('')` rule. `css-loader` treats this as a module import. Webpack tries to import the module defined by `''` that is incorrectly treated as `'./'`. Since there is an `index.js` in the directory where `main.css`, Webpack resolves the `url('')` to `index.js` and substitutes `''` to `index.js`.
+`index.js` imports `main.css` that has a `url('')` rule. `css-loader` treats this as a module import and incorrectly rewrites `''` as `'./'`. Since there is an `index.js` in the directory where `main.css`, Webpack resolves the `./` to `index.js` and adds a reference to the module in the bundle:
 
 ```js
 "url(" + __webpack_require__(0) + ")"
 ```
-
-### Webpack `require('')` issue
-
-`require('')` should be a noop and not treated as `require('./')`. Although this is fixed by https://github.com/webpack/webpack/issues/2006, this issue still persists internally through loaders with Webpack v2.3.1. (See `css-loader` issue)
-
-#### Steps to reproduce
-
-1. `yarn`
-2. `yarn build`
-3. Webpack should issue a warning for trying to import `''`, in the same way it warns for an actual `require('')`
 
 ### `css-loader` issue
 
@@ -44,6 +34,6 @@ GitHub issues:
 
 [Extract Text Webpack Plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/465)
 
-[CSS Loader](https://github.com/webpack-contrib/css-loader/issues/462)
+CSS Loader [issue #1](https://github.com/webpack-contrib/css-loader/issues/462) [issue #2](https://github.com/webpack-contrib/css-loader/issues/463)
 
-[Webpack](https://github.com/webpack/webpack/issues/4541)
+[`loader-utils`](https://github.com/webpack/loader-utils/issues/80)
