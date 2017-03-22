@@ -38,3 +38,12 @@ Although this might be intended, it might not be correct to require certain file
 3. Contents of `index.js` are executed. An error is thrown from `index.js` on build time and the build fails. Output from `console.log` is also displayed.
 
 ![Webpack console output](https://cloud.githubusercontent.com/assets/729230/24204564/2aa6353e-0f19-11e7-9046-7481a1419b0b.png)
+
+
+GitHub issues:
+
+[Extract Text Webpack Plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/465)
+
+[CSS Loader](https://github.com/webpack-contrib/css-loader/issues/462)
+
+[Webpack](https://github.com/webpack/webpack/issues/4541)
